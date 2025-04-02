@@ -4,6 +4,42 @@
 using namespace std;
 // 1 vs 100
 
+//setting arrays of characters with their strength, mana, skill, skill damage
+RPG_Character character_Array[6] = {
+       RPG_Character("Black Knight", 2000, 12, 1000, Weapon("Bloodthirsty Spear", 10), Skill("Sword of Hell", 30, 15)),
+       RPG_Character("Assassin", 1500, 15, 500, Weapon("Wicked Blade", 12), Skill("Soul Burn", 40, 5)),
+       RPG_Character("Ranger", 1500, 18, 700, Weapon("Windstrike Bow", 2), Skill("Piercing Shot", 30, 7)),
+       RPG_Character("Warrior", 3000, 20, 300, Weapon("Warhammer", 20), Skill("Power Strike", 50, 6)),
+       RPG_Character("Warlock", 1000, 5, 3000, Weapon("Old Cedar Staff", 8), Skill("Fireball", 100, 20)),
+       RPG_Character("Priest", 4000, 8, 2000, Weapon("Holy Hammer", 7), Skill("Prayer of Renewal", 25, 5))
+};
+
+//Each character's short background story.
+string background_array[6] ={
+       "The original power of the noble knights were beyond what humans can hold. With solemn denomination and loyalty to the Shadow Tribe, the black knights were the main players to be the Tribe's virtuoso.\n", "They have been a part of the Inotian continent for a long time. With many rigorous training courses and real battle skills, they hold the strongest independent combat powers on the continent.\n", "In the woods, away from most human activities, live these pursuer. Shadow Tribe members contact them to collect valuable information that provides their survival.\n", "From the highlands, north of the Inotian continent, are a champion of savages. Some of them are mercenaries of the Shadow Tribe, not for the honor or wealth, but for their strong desire to slaughter enemies in battles.\n", "These wizards have been lured to the fascinating dark powers of the Shadow Tribe than of religious faith towards the church. Their practice of magic and witchcraftry is of highest destruction on the Inotian continent.\n", "Some of the dark Shadow Followers were once devoting priests of the Life-giver, Tamit. Their distorted faith towards dark magic is more destructive than it was when they were empowered with the powers of the light.\n"
+};
+
+RPG_Character hero;
+
+int catchoice;
+void StartChooseCharacter(){
+   for(int i = 0; i < sizeof(character_Array)/sizeof(character_Array[0]); i++){
+       cout << i + 1 << ". " << character_Array[i].getName() << endl;
+   }
+   cout << "Please ONLY choose a number from 1 to 6\nChoose your selection: ";
+   cin >> catchoice;
+   cout << endl;
+   while(catchoice != 1 && catchoice != 2 && catchoice != 3 && catchoice != 4 && catchoice != 5 && catchoice != 6){
+       cout << "Invalid. Choose again: ";
+       cin >> catchoice;
+       cout << endl;
+   }
+   //choosing character
+   hero = character_Array[catchoice-1];
+   cout << background_array[catchoice -1];
+   hero.printStats();
+}
+
 int battleChoice;
 int main(){
    srand(time(0));
