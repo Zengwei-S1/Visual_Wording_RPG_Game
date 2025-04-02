@@ -1,0 +1,273 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+// 1 vs 100
+
+int battleChoice;
+int main(){
+   srand(time(0));
+   bool oppdefeated = false;
+   int round = 1;
+   bool GameOver;
+   StartChooseCharacter();
+   Opponent goblin("Goblin", 1, 300);
+   // Access opponent properties
+   cout << "Round\t" << round << endl;
+   cout << "Opponent Name: " << goblin.getName() << endl;
+   cout << "Opponent Health: " << goblin.getHealth() << endl;
+   //first round
+   do{
+       cout << "\nWhat do you wanna do?\n1. Attack (With weapon).\n2. Skill Attack\n\n";
+       cin >> battleChoice;
+       while(battleChoice != 1 && battleChoice != 2){
+           cout << "Invalid. Choose again: ";
+           cin >> battleChoice;
+           cout << endl;
+       }
+       cout << endl;
+       if(battleChoice == 1){
+          // hero.attack();
+           cout << endl;
+           goblin.takeDamage(hero.attack());
+           //goblin.attack();
+           hero.recieveDamage(goblin.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           goblin.printStats();
+           cout << endl;
+       }
+       else{
+           //hero.getdmg();
+           cout << endl;
+           hero.manaLoss();
+           goblin.takeDamage(hero.getdmg());
+           goblin.printStats();
+           //goblin.attack();
+           hero.recieveDamage(goblin.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           goblin.printStats();
+           cout << endl;
+       }
+       if(goblin.getHealth() <= 0){
+           oppdefeated = true;
+           cout << "You killed it!\n";
+           hero.lvlup();
+           hero.printStats();
+           round++;
+       }
+   }while(oppdefeated != true);
+
+   //second round
+   oppdefeated = false;
+   Opponent bat("bat", 1, 480);
+   // Access opponent properties
+   cout << "Round\t" << round << endl;
+   cout << "Opponent Name: " << bat.getName() << endl;
+   cout << "Opponent Health: " << bat.getHealth() << endl;
+   do{
+       cout << "\nWhat do you wanna do?\n1. Attack (With weapon).\n2. Skill Attack\n\n";
+       cin >> battleChoice;
+       while(battleChoice != 1 && battleChoice != 2){
+           cout << "Invalid. Choose again: ";
+           cin >> battleChoice;
+           cout << endl;
+       }
+       cout << endl;
+       if(battleChoice == 1){
+           //hero.attack();
+           cout << endl;
+           bat.takeDamage(hero.attack());
+           bat.attack();
+           hero.recieveDamage(bat.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           bat.printStats();
+           cout << endl;
+       }
+       else{
+           //hero.getdmg();
+           cout << endl;
+           hero.manaLoss();
+           bat.takeDamage(hero.getdmg());
+           bat.printStats();
+           bat.attack();
+           hero.recieveDamage(bat.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           bat.printStats();
+           cout << endl;
+       }
+
+       if(bat.getHealth() <= 0){
+           oppdefeated = true;
+           cout << "You killed it!\n";
+           hero.lvlup();
+           hero.printStats();
+           round++;
+       }
+   }while(oppdefeated != true);
+
+   //third round
+   oppdefeated = false;
+   Opponent Werewolf("Werewolf", 1, 600);
+   // Access opponent properties
+   cout << "Round\t" << round << endl;
+   cout << "Opponent Name: " << Werewolf.getName() << endl;
+   cout << "Opponent Health: " << Werewolf.getHealth() << endl;
+   do{
+       cout << "\nWhat do you wanna do?\n1. Attack (With weapon).\n2. Skill Attack\n\n";
+       cin >> battleChoice;
+       while(battleChoice != 1 && battleChoice != 2){
+           cout << "Invalid. Choose again: ";
+           cin >> battleChoice;
+           cout << endl;
+       }
+       cout << endl;
+       if(battleChoice == 1){
+           //hero.attack();
+           cout << endl;
+           hero.manaLoss();
+           Werewolf.takeDamage(hero.attack());
+           Werewolf.attack();
+           hero.recieveDamage(Werewolf.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           Werewolf.printStats();
+           cout << endl;
+       }
+       else{
+           //hero.getdmg();
+           cout << endl;
+           hero.manaLoss();
+           Werewolf.takeDamage(hero.getdmg());
+           Werewolf.printStats();
+           Werewolf.attack();
+           hero.recieveDamage(Werewolf.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           Werewolf.printStats();
+           cout << endl;
+       }
+
+       if(Werewolf.getHealth() <= 0){
+           oppdefeated = true;
+           cout << "You killed it!\n";
+           hero.lvlup();
+           hero.printStats();
+           round++;
+       }
+   }while(oppdefeated != true);
+
+   //fourth round
+   oppdefeated = false;
+   Opponent CaveSpider("CaveSpider", 3, 650);
+   // Access opponent properties
+   cout << "Round\t" << round << endl;
+   cout << "Opponent Name: " << CaveSpider.getName() << endl;
+   cout << "Opponent Health: " << CaveSpider.getHealth() << endl;
+   do{
+       cout << "\nWhat do you wanna do?\n1. Attack (With weapon).\n2. Skill Attack\n\n";
+       cin >> battleChoice;
+       while(battleChoice != 1 && battleChoice != 2){
+           cout << "Invalid. Choose again: ";
+           cin >> battleChoice;
+           cout << endl;
+       }
+       cout << endl;
+       if(battleChoice == 1){
+           //hero.attack();
+           cout << endl;
+           CaveSpider.takeDamage(hero.attack());
+           CaveSpider.attack();
+           hero.recieveDamage(CaveSpider.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           CaveSpider.printStats();
+           cout << endl;
+       }
+       else{
+           //hero.getdmg();
+           cout << endl;
+           hero.manaLoss();
+           CaveSpider.takeDamage(hero.getdmg());
+           CaveSpider.printStats();
+           CaveSpider.attack();
+           hero.recieveDamage(CaveSpider.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           CaveSpider.printStats();
+           cout << endl;
+       }
+
+       if(CaveSpider.getHealth() <= 0){
+           oppdefeated = true;
+           cout << "You killed it!\n";
+           hero.lvlup();
+           hero.printStats();
+           round++;
+       }
+   }while(oppdefeated != true);
+
+   //fifth round
+   oppdefeated = false;
+   Opponent CursedSummon("CursedSummon", 3, 750);
+   // Access opponent properties
+   cout << "Round\t" << round << endl;
+   cout << "Opponent Name: " << CursedSummon.getName() << endl;
+   cout << "Opponent Health: " << CursedSummon.getHealth() << endl;
+   do{
+       cout << "\nWhat do you wanna do?\n1. Attack (With weapon).\n2. Skill Attack\n\n";
+       cin >> battleChoice;
+       while(battleChoice != 1 && battleChoice != 2){
+           cout << "Invalid. Choose again: ";
+           cin >> battleChoice;
+           cout << endl;
+       }
+       cout << endl;
+       if(battleChoice == 1){
+           //hero.attack();
+           cout << endl;
+           CursedSummon.takeDamage(hero.attack());
+           CursedSummon.attack();
+           hero.recieveDamage(CursedSummon.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           CursedSummon.printStats();
+           cout << endl;
+       }
+       else{
+           //hero.getdmg();
+           cout << endl;
+           hero.manaLoss();
+           CursedSummon.takeDamage(hero.getdmg());
+           CursedSummon.printStats();
+           CursedSummon.attack();
+           hero.recieveDamage(CursedSummon.attack());
+           cout << endl;
+           hero.printStats();
+           cout << endl;
+           CursedSummon.printStats();
+           cout << endl;
+       }
+
+       if(CursedSummon.getHealth() <= 0){
+           oppdefeated = true;
+           cout << "You killed it!\n";
+           hero.lvlup();
+           hero.printStats();
+           round++;
+       }
+   }while(oppdefeated != true);
+   cout << "Congrats! You beat all the 5 monsters!\n";
+}
