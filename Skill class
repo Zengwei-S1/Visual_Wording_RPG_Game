@@ -1,0 +1,37 @@
+//Skill Class
+class Skill{
+private:
+   string name;
+   int damage;
+   int manaCost;
+public:
+   //Constructors
+   Skill(){}
+   Skill(string skillName, int skillDamage, int skillManaCost) {
+       name = skillName;
+       damage = skillDamage;
+       manaCost = skillManaCost;
+   }
+
+   int skillAttack(){
+       int skillDamage = damage;
+       int damage = skillDamage;
+       cout <<  "You deals " << damage << " damage with the skill," << getName() << endl;
+       return damage;
+   }
+
+   string getName(){
+       return name;
+   }
+
+   int getDamage(){
+       return damage;
+   }
+
+   int getManaCost(){
+       return manaCost;
+   }
+};
+
+
+bool enoughMana;
