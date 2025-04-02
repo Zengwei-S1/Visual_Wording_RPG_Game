@@ -1,0 +1,21 @@
+//Weapon class
+class Weapon {
+private:
+   string name;
+   int damage;
+public:
+   //Constructors
+   Weapon(){}
+   Weapon(string weaponName, int weaponDamage) {
+       name = weaponName;
+       damage = weaponDamage;
+   }
+
+   string getName(){
+       return name;
+   }
+
+   int getDamage(){
+       return damage;
+   }
+};
