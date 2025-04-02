@@ -1,0 +1,45 @@
+//Opponent Class
+class Opponent {
+private:
+   string name;
+   int opponentDamage;
+   int health;
+public:
+   Opponent(){}
+   Opponent(string opponentName, int opponentdmg, int opponentHealth) {
+       name = opponentName;
+       opponentDamage = opponentdmg;
+       health = opponentHealth;
+   }
+
+   int attack(){
+       int randDamage = rand() % 5 + 1;
+       int opponentdmg =  opponentDamage;
+       int Damage = opponentdmg;
+       cout <<  "Opponent deals " << Damage + randDamage << " damage" << endl;
+       return Damage + randDamage;
+   }
+  
+   string getName(){
+       return name;
+   }
+
+   int getOppDamage(){
+       return opponentDamage;
+   }
+
+   int getHealth(){
+       return health;
+   }
+
+   void takeDamage(int damage) {
+       health -= damage;
+   }
+
+   void printStats(){
+       cout << "Name: " << name <<endl;
+       cout << "HP: " << health <<endl;
+       cout << endl;
+   }
+};
+
