@@ -1,0 +1,112 @@
+//Character Class
+class RPG_Character{
+private:
+   string name;
+   int level;
+   int hp;
+   int mana;
+   int strength;
+   int exp;
+   Weapon weapon;
+   Skill skill;
+
+public:
+   RPG_Character(){}
+
+   RPG_Character(string name, int hp, int strength, int mana, Weapon weapon, Skill skill){
+       this->name = name;
+       this->hp = hp;
+       this->strength = strength;
+       this->mana = mana;
+       level = 1;
+       this->weapon = weapon;
+       this->skill = skill;
+   }
+
+   int attack(){
+       int damagestrength = strength;
+       int Damage = damagestrength;
+       if(rand() % 2 == 0){
+           cout << "Critical Strike!\n";
+           Damage *= 2;
+       }
+       cout <<  "You deals " << Damage + weapon.getDamage() << " damage with " << weapon.getName() << endl;
+       int totalDamage = Damage + weapon.getDamage();
+       return totalDamage;
+   }
+
+   int getdmg(){
+       return skill.skillAttack();
+   }
+
+   void manaLoss(){
+       if(this-> mana > skill.getManaCost()){
+           enoughMana = true;
+           this->mana -= skill.getManaCost();
+       }
+       else{
+           enoughMana = false;
+           cout << "NO MANA LEFT!\n";
+       }
+
+   }
+
+   int gethp(){
+       return hp;
+   }
+   void sethp(int n){
+       hp = n;
+   }
+
+   int getStrength(){
+       return strength;
+   }
+
+   void setStrength(int n){
+       strength = n;
+   }
+
+   int setexp(){
+       return exp;
+   }
+
+   string getName(){
+       return name;
+   }
+
+   int getexp(){
+       return exp;
+   }
+
+   void setexp(int n){
+       exp = n;
+   }
+
+   //leveling up
+   void lvlup(){
+       cout << "Level up!\nHp + 50\tStrength + 15\t\n";
+       sethp(gethp() + 50);
+       setStrength(getStrength() + 15);
+       level++;
+   }
+
+   //hero recieves damage
+   void recieveDamage(int damage){
+       hp -= damage;
+   }
+
+   //printing the hero's stats
+   void printStats(){
+       cout << endl;
+       cout << "Name: " << name <<endl;
+       cout << "Level: " << level <<endl;
+       cout << "HP: " << hp <<endl;
+       cout << "Strength: " << strength <<endl;
+       cout << "Mana: " << mana <<endl;
+       cout << "Weapon: " << weapon.getName() << endl;
+       cout << "Skill: " << skill.getName() << endl;
+       cout << endl;
+   }
+
+
+};
